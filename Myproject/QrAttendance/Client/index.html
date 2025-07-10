@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Attendance System</h1>
+        </header>
+        
+        <div class="status-bar">
+            <button class="status-btn" id="register-btn">Student Registration</button>
+            <button class="status-btn" id="scanner-btn">QR Scanner</button>
+            <button class="status-btn" id="history-btn">Attendance History</button>
+        </div>
+        
+        <div class="main-content">
+            <!-- Registration Form -->
+            <div class="card" id="registration-section">
+                <h2 class="card-title">Student Registration</h2>
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="student-id">Student ID</label>
+                        <input type="text" id="student-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-name">Full Name</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-email">Email</label>
+                        <input type="email" id="student-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-course">Course</label>
+                        <input type="text" id="student-course" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Register Student</button>
+                </form>
+                <div id="qr-code-result" class="hidden">
+                    <h3>Student QR Code</h3>
+                    <div class="qr-code-container">
+                        <div id="student-details">
+                            <div class="student-info" id="qr-student-name"></div>
+                            <div class="student-info">ID: <span id="qr-student-id"></span></div>
+                        </div>
+                        <div id="qrcode"></div>
+                    </div>
+                    <button class="print-btn" id="print-qr-btn">Print QR Code</button>
+                    <p>Scan this QR code for attendance</p>
+                </div>
+            </div>
+            
+            <!-- QR Scanner -->
+            <div class="card hidden" id="scanner-section">
+                <h2 class="card-title">QR Code Scanner</h2>
+                <div class="qr-scanner-container">
+                    <video id="qr-video"></video>
+                    <canvas id="qr-canvas"></canvas>
+                </div>
+                <div id="qr-result"></div>
+                <div class="action-buttons">
+                    <button class="action-btn" id="start-scanner">Start Scanner</button>
+                    <button class="action-btn secondary" id="stop-scanner">Stop Scanner</button>
+                </div>
+            </div>
+            
+            <!-- Attendance History -->
+            <div class="card hidden" id="history-section">
+                <h2 class="card-title">Attendance History</h2>
+                <div class="form-group">
+                    <label for="search-student">Search by Student ID</label>
+                    <input type="text" id="search-student" placeholder="Enter student ID">
+                    <button class="submit-btn" id="search-btn">Search</button>
+                </div>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-data">
+                        <!-- Data will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
