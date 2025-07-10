@@ -1,0 +1,45 @@
+Instructions to run 
+
+Open the Irium webcam software and pc and your phone if you don't have laptop or camera for your pc
+This software will connect pc to your phone camera.
+Keep another phone ready to click picture of the qr code generated for new registered student.
+
+Download and install nodejs on Pc 
+
+Start Node js server:- Go to Myproject-> QrAttendance ->Server
+Open this path in cmd by clicking on the address bar and type cmd and press enter.
+type "npm install" if you are running for the first time  to install server packages 
+and/or else type
+"npm start" and then press enter to start Node js server
+
+Download and install Visual Studio Code on Pc 
+2nd step open Visual Studio Code(VSCode) :-
+Open the project folder 
+Example : -> File ->Open Folder->Open "Myproject" folder
+right click on index.html page and select option open with live server.
+This will open the html page in the web  browser.
+
+3rd step download and install MySQL server 
+Student Registration:- 
+Fill registration details and click on "Register student" button to register student details in the MySQL database.
+It will display the message in the alert "Student registered successfully"
+If student id  is already used before for registration it will display error in the alert box "Student Id already exists".
+
+After new student is successfully registered, their generated QR Code will be displayed below the Register student button.
+After that student can take picture of their QR code or print the QR Code by clicking on Print QR Code button and save it to later mark their attendance.
+
+Marking Attendance:-
+Whenever students want to mark their attendance, they must click on QR Scanner button 
+Click on Start Scanner button to open the webcam and scan the qr code 
+The scanner will scan the Qr code and Attendance recorded message will be displayed along with other student details.
+
+After that click on Attendance history button in the menu bar. 
+Here Attendance history of all the students will be shown  based on date and time.
+
+Problems : 
+What if student loses his QRCode , since it is generate only one time per unique id?
+-> We need teacher login, to view all the students and generate qr code again and sent it to student in this case
+
+
+To make  login and registration I'm gonna be using express ejs for templating(passing variables from server.js or javascript to html page)
+install nodemon dotenv
