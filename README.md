@@ -1,1 +1,1 @@
-This is a Attendance System project using Qr Code.
+This is an Attendance System project using Qr Code.
